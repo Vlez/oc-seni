@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Navigation from "./components/Navigation";
+import Homepage from "./routes/Homepage";
+import Nosotros from "./routes/Nosotros";
+import Unifilar from "./routes/Unifilar";
+import { Route, Routes } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid>
+      <Navigation />
+      <Routes>
+        <Route path="/nosotros/*" element={<Nosotros />} />
+        <Route path="/unifilar" element={<Unifilar />} />
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </Container>
   );
 }
 
